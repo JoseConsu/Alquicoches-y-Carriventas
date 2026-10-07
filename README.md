@@ -30,6 +30,9 @@ Diseñar y desarrollar una base de datos que soporte la operación de la platafo
 
 Se adjunta en el repositorio el archivo `Alquicoches_y_Carriventas_ERD.pdf` correspondiente al primer modelo entidad-relación (ERD) del proyecto (sujeto a ajustes conforme avance el diseño).
 
+Se le hizo un ajuste, en caso de que la calidad sea mala dar click encima de "ERD_2.0", allí se administro el link de miro.
+
+
 ## Asignatura
 
 Bases de Datos (proyecto de grupo de clase).
