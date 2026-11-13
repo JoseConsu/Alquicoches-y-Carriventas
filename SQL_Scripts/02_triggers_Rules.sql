@@ -24,11 +24,11 @@ BEGIN
 
     -- Validaciones críticas transaccionales
     IF v_estado != 'DISPONIBLE' THEN
-        SIGNAL SQLSTATE '45000' MESSAGE_TEXT = 'Violación de Integridad: El vehículo no está DISPONIBLE.';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Violación de Integridad: El vehículo no está DISPONIBLE.';
     END IF;
 
     IF v_modalidad = 'SOLO_VENTA' THEN
-        SIGNAL SQLSTATE '45000' MESSAGE_TEXT = 'Violación Comercial: Vehículo exclusivo para venta.';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Violación Comercial: Vehículo exclusivo para venta.';
     END IF;
 
     -- Validación Regulatoria (SOAT)
@@ -40,7 +40,7 @@ BEGIN
       AND fecha_vencimiento >= NEW.fecha_devolucion_prevista;
 
     IF v_soat_valido = 0 THEN
-        SIGNAL SQLSTATE '45000' MESSAGE_TEXT = 'Bloqueo Legal: SOAT inactivo o expira durante el contrato.';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Bloqueo Legal: SOAT inactivo o expira durante el contrato.';
     END IF;
 
     -- Asignación automática: El km_salida hereda obligatoriamente el km del vehículo
@@ -77,7 +77,7 @@ BEGIN
     FROM alquiler WHERE id_operacion = NEW.id_alquiler;
 
     IF v_tipo != 'LICENCIA_CONDUCCION' OR v_activo = 0 OR (v_vencimiento IS NOT NULL AND v_vencimiento < DATE(v_fecha_retorno)) THEN
-        SIGNAL SQLSTATE '45000' MESSAGE_TEXT = 'Bloqueo Legal: Licencia inválida, inactiva o caduca antes del retorno.';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Bloqueo Legal: Licencia inválida, inactiva o caduca antes del retorno.';
     END IF;
 END; //
 DELIMITER ;
