@@ -1,3 +1,10 @@
+-- =====================================================================
+-- ALQUICOCHES Y CARRIVENTAS - DATOS DE EJEMPLO (MySQL 8.0)
+-- El orden de ejecucion respeta las llaves foraneas.
+-- Cada alquiler cerrado se inserta y luego se actualiza con la devolucion
+-- para activar los triggers 1 y 3.
+-- =====================================================================
+
 USE bd_alquicoches_carriventas;
 
 -- ---------------------------------------------------------------------
