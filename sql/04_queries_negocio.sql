@@ -1,3 +1,5 @@
+USE bd_alquicoches_carriventas;
+
 /*1. Aseguradoras cuyo nombre empieza por S, con sus polizas*/
 SELECT a.nombre AS aseguradora,
        a.nit,
