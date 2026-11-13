@@ -3,13 +3,11 @@ USE bd_alquicoches_carriventas;
 /*1. Aseguradoras cuyo nombre empieza por S, con sus polizas*/
 SELECT a.nombre AS aseguradora,
        a.nit,
-       COUNT(p.id_poliza) AS polizas_emitidas,
        SUM(p.activa = 1)  AS polizas_activas,
        SUM(p.costo_prima) AS prima_total
 FROM aseguradora a
 LEFT JOIN poliza_vehiculo p ON p.id_aseguradora = a.id_aseguradora
 WHERE a.nombre LIKE 'S%'
-GROUP BY a.id_aseguradora, a.nombre, a.nit
 ORDER BY a.nombre;
 
 
