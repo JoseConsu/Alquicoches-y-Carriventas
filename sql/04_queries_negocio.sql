@@ -43,7 +43,7 @@ WHERE c.tarifa_diaria > 200000
 ORDER BY c.tarifa_diaria ASC;
 
 
-/* F4. Direccion de sucursales que contenga la palabra Avenida o Calle. */
+/*4. Direccion de sucursales que contenga la palabra Avenida o Calle*/
 SELECT s.id_sucursal,
        s.nombre AS sucursal,
        s.ciudad,
@@ -55,7 +55,7 @@ WHERE s.direccion LIKE '%Avenida%'
 ORDER BY s.ciudad;
 
 
-/5. Personas con email corporativo de alquicoches*/
+/*5. Personas con email corporativo de alquicoches*/
 SELECT pe.id_persona,
        pe.primer_nombre,
        pe.apellidos,
